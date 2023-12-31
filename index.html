@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <link rel="icon" href="./assets/images/sharingan.png" />
+		<title>Hiral's Portfolio</title>
+    <meta name="description" content="A portfolio made out of basic knowledge of web-dev.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      html {
+        text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+      }
+      
+      body {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      
+      
+      
+      /* Main Page Layout */
+      
+      #main-content {
+        margin: 225px 425px;
+        display: flex;
+        flex-direction: column;
+        gap: 96px;
+      }
+      
+      
+      
+      
+      /* Portfolio Header */
+      
+      #portfolio-header {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      
+      #portfolio-header-image-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-basis: 50%;
+      }
+      
+      .portfolio-header-image {
+        width: 100%;
+        height: auto;
+      }
+      
+      #portfolio-header-text-container {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+        flex-basis: 50%;
+      }
+      
+      
+      
+      
+      /* About Section */
+      
+      #about-section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .about-section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+      
+      
+      
+      
+      /* Project Section */
+      
+      #my-work-section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .projects-container {
+        display: flex;
+        gap: 34px 16px;
+        flex-wrap: wrap;
+      }
+      
+          /* Project Cards */
+      
+          .project-card {
+            max-width: calc((100% - 32px) / 3);
+            display: flex;
+            flex-direction: column;
+            gap: 34px;
+          }
+      
+          .project-card-text-container {
+            flex-direction: column;
+            display: flex;
+            gap: 16px
+          }
+      
+          .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+          }
+      
+      
+      
+      
+      /* Project Pages */
+      
+      #project-header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .project-header-image {
+        width: 100%;
+        height: auto;
+      }
+      
+      #project-details {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .project-details-content {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+      
+          /* Project Gallery */
+      
+          #project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+      
+          .project-gallery-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 34px 16px;
+          }
+      
+          .gallery-image-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+      
+          .gallery-image-container.half-width {
+            width: calc((100% - 16px) / 2);
+          }
+      
+          .gallery-image {
+            width: 100%;
+            height: auto;
+          }
+      
+      
+      /* Extra Extra large devices (large laptops and desktops, 1200px and below) */
+      @media only screen and (max-width: 1600px) {
+        #main-content {
+          margin: 225px 275px;
+        }
+      }
+      
+      /* Extra large devices (large laptops and desktops, 1200px and below) */
+      @media only screen and (max-width: 1200px) {
+        #main-content {
+          margin: 225px 175px;
+        }
+      }
+      
+      /* Large devices (laptops/desktops, 1000px and below) */
+      @media only screen and (max-width: 1000px) {
+        #main-content {
+          margin: 225px 75px;
+        }
+      }
+      
+      /* Small devices (portrait tablets and large phones, 800px and below) */
+      @media only screen and (max-width: 800px) {
+        #main-content {
+          margin: 150px 50px;
+        }
+      
+        #portfolio-header {
+          flex-direction: column;
+        }
+      
+        .project-card {
+          max-width: calc((100% - 16px) / 2);
+        }
+      }
+      
+      /* Small devices (portrait tablets and large phones, 600px and below) */
+      @media only screen and (max-width: 600px) {
+        #main-content {
+          margin: 125px 20px;
+        }
+      
+        .project-card {
+          max-width: 100%;
+        }
+      }
+      
+      
+      
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      
+      .nav-title {
+        font-weight: 700;
+        font-size: 24px;
+      }
+      
+      .button-text {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      
+      .image-caption {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      
+      .main-title {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      
+      .subheader-text {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      
+      .body-text {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      
+      .project-card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
+      
+      .project-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+
+      
+.right-arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+}
+
+a.icon-link {
+  transition: transform 200ms ease-in-out;
+}
+
+a.icon-link:hover {
+  cursor: pointer;
+  stroke-width: 5;
+  margin: 0;
+  transform: rotate(15deg);
+}
+.navbar {
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-title-link {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-title-link:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    padding: 20px 20px;
+    background-color: white
+  }
+}
+
+a.button {
+  padding: 8px 16px;
+  border: 3px solid #141414;
+  border-radius: 50px;
+  color: black;
+  text-decoration: none;
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+a.button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+
+#footer {
+  width: 100%;
+  display: flex;
+  padding: 30px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+a.no-underline {
+  text-decoration: none;
+  color: black
+}
+
+a.no-underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media only screen and (max-width: 800px) {
+  #footer {
+    padding: 20px 20px;
+  }
+}
+    </style>
+
+		<link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="typography.css">
+    <link rel="stylesheet" href="utilities.css">
+
+		<script defer src="./js/script.js"></script>
+	</head>
+	<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <a class="nav-title-link" href="./index.html">
+        <span class="nav-title">Hiral Mittal</span>
+        <a class="button" href="mailto:mittalhiral25@gmail.com">
+          <span class="button-text">Contact Me</span>
+        </a>
+      </a>
+    </div>
+    <!-- MAIN PAGE CONTENT -->
+    <div id="main-content">
+      <!-- PORTFOLIO HEADER -->
+      <div id="portfolio-header">
+        <div id="portfolio-header-image-container">
+          <img src="https://i.ibb.co/C58Qz5n/Whats-App-Image-2023-12-31-at-15-18-51-1a44b523.jpg"" class="portfolio-header-image">
+          <a class="no-underline" target="_blank" href="https://github.com/hiral-2501/hi-firstreposit">
+            <span class="image-caption">@hiral-2501</span>
+          </a>
+        </div>
+        <div id="portfolio-header-text-container">
+            <div class="header-text">
+              <span class="main-title">Hi, I'm Hiralmittal.</span>
+              <div class="body-text">I am a freshman at UPES, currently pursuing B.Tech in CSE.I am a member of UPES ACM and ACM-W Student Chapters.I wish to be a successful engineer.</div>
+            </div>
+            <a class="button" id="my-work-link">
+              <span class="button-text">Check out my projects</span> 
+              <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M16.06 10.94a1.5 1.5 0 0 1 0 2.12l-5.656 5.658a1.5 1.5 0 1 1-2.121-2.122L12.879 12L8.283 7.404a1.5 1.5 0 0 1 2.12-2.122z"/></g></svg>
+            </a>
+        </div>
+      </div>
+      <div id="about-section">
+        <span class="subheader-text">About Me</span>
+        <div class="about-section-content">
+          <div class="body-text">I have been a very passionate & curious student throughout my academic career. My curiosity to learn beyond textbooks has made me achieve great things. These qualities have pushed me and will continue to push me to do extraordinary things in the future to innovate unique, sustainable solutions for the world in the fields of science and technology. I want to become independent and earn self-respect.</div>
+          <div class="body-text">.</div>
+        </div>
+      </div>
+      <div id="my-work-section">
+        <span class="subheader-text">My Projects</span>
+        <div class="projects-container">
+          <div class="project-card">
+            <img style="object-fit:cover; object-position:top" src="https://i.ibb.co/kHbtFx7/Whats-App-Image-2023-12-31-at-15-27-09-526a7a48.jpg"" class="project-image">
+            <div class="project-card-text-container">
+              <div class="subheader-text project-title">Science project</div>
+              <div class="body-text project-card-text">I did a science project on environment sustainability in which we found out ways to reduce waste at school level.  It was organized by Haryana Vigyan Manch at 27th National Children's Science Congress 2019. This event is annually organized by the Government of India.
+                I got selected at multiple levels: District level, State level, and National Level. We spent 4 months on this project, almost 20 hours a week
+               .</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <div id="footer">
+      <a class="icon-link" target="_blank" href="https://www.instagram.com/hiralmittal_25?igsh=MXAxMjVqOGNudGdqbA==">
+        <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fffff" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg>
+      </a>
+      <a class="icon-link" href="mailto:mittalhiral25@gmail.com">
+        <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fffff" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z"/></svg>
+      </a>
+    </div>
+	</body>
+</html>
